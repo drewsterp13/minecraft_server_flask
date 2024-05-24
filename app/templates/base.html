@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Title</title>
+</head>
+<body class="bg-dark text-light text-center">
+    <nav class="bg-success text-white d-flex flex-row justify-content-between">
+        <h1>Minecraft Server Database</h1>
+        <ul class="d-flex flex-row list-unstyled p-2">
+            <li><a class="text-white font-weight-bold p-3" href="{{ url_for('site.home') }}">HOME</a></li>
+            {% if current_user.is_authenticated %}
+            <li><a class="text-white font-weight-bold p-3" href="{{ url_for('site.profile')}}">PROFILE</a></li>
+            <li><a class="text-white font-weight-bold p-3" href="{{ url_for('auth.logoff') }}">LOG-OUT</a></li>
+            {% else %}
+            <li><a class="text-white font-weight-bold p-3" href="{{ url_for('auth.signup') }}">SIGN-UP</a></li>
+            <li><a class="text-white font-weight-bold p-3" href="{{ url_for('auth.signin') }}">SIGN-IN</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>

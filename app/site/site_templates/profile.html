@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <div class="border border-success mt-3 rounded mr-5 ml-5">
+        <h2>Your Profile:</h2>
+        <h5>{{ current_user.first_name }} {{ current_user.last_name }}</h5>
+        <h5>{{ current_user.email }}</h5>
+        <h4>KEY: {{ current_user.token }}</h4>
+    </div>
+    <div class="mt-3">
+        <img src="../../static/images/creeper_graystyle.jpg" alt="A graystyle creeper">
+    </div>
+</main>
+
+{% endblock %}

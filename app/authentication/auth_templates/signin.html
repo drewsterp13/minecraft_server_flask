@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <h2>Sign In</h2>
+    {% include "signin_forms.html" %}
+    <h4>Don't have a key</h4>
+    <a href="{{ url_for('auth.signup') }}"><button class="bg-light text-dark font-weight-bold p-2">SIGN-UP</button></a>
+    <h4>Not in the mood to get a key?</h4>
+    <a href="{{ url_for('site.home') }}"><button class="bg-light text-dark font-weight-bold p-2">CANCEL</button></a>
+</main>
+
+{% endblock %}

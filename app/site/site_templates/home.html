@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+    <h2>Intro</h2>
+    <p>Welcome to the unoffical Minecraft server database where you can get the api key here</p>
+
+    {% if current_user.is_authenticated %}
+    <h4>To view your api key</h4>
+    <a href="{{ url_for('site.profile') }}"><button class="bg-light text-dark font-weight-bold p-2">PROFILE</button></a>
+    
+    {% else %}
+    <h2>Sign up</h2>
+    <p>Sign up to get yourself an api key to have access to our database</p>
+    <a href="{{ url_for('auth.signup') }}"><button class="bg-light text-dark font-weight-bold p-2">SIGN-UP</button></a>
+    
+    <h4 class="mt-3">Already have your own api key?</h4>
+    <a href="{{ url_for('auth.signin') }}"><button class="bg-light text-dark font-weight-bold p-2">SIGN-IN</button></a>
+    
+    {% endif %}
+
+    <div class="mt-3">
+        <img src="../../static/images/creeper.jpg" alt="A creeper">
+    </div>
+    
+</main>
+{% endblock %}
